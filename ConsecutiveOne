@@ -1,17 +1,15 @@
-    public int FindMaxConsecutiveOnes(int[] nums) {
-        int curconsecutiveone=0;
-        int preconsecutiveone=0;
+  public int FindMaxConsecutiveOnes(int[] nums) {
+        int currentconsecutiveone=0;
+        int actualconsecutiveone=0;
         for(int i=0; i<nums.Length; i++)
         {
           if((nums[i]%2)==1)
-          {
-              curconsecutiveone++; 
-          }
+              currentconsecutiveone++; 
           else
-          {
-               preconsecutiveone= curconsecutiveone;
-               curconsecutiveone=0;
-          }         
+              currentconsecutiveone=0;  
+          
+          if(currentconsecutiveone>actualconsecutiveone)            
+               actualconsecutiveone= currentconsecutiveone;
         }
-        return preconsecutiveone>curconsecutiveone ? preconsecutiveone : curconsecutiveone;
+        return actualconsecutiveone;
     }
